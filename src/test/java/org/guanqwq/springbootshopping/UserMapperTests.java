@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-class SpringbootShoppingApplicationTests {
+class UserMapperTests {
 
     @Resource
     private UserMapper mapper;
