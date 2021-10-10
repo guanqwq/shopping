@@ -21,6 +21,7 @@ class UserMapperTests {
         list.add("张纪龙");
         list.add("胡玉仙");
         list.add("李嘉成");
+        // test
         list.add("金宇婷");
 
         for (String item : list) {
