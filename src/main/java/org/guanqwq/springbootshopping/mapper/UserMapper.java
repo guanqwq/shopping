@@ -20,4 +20,6 @@ public interface UserMapper {
             "<if test=\"pwd!=null\"> AND password=#{pwd} </if>" +
             "</script>")
     User getUser(@Param("name") String username, @Param("pwd") String password);
+
+    // 查找所有用户
 }
