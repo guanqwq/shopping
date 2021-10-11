@@ -20,6 +20,7 @@ class UserMapperTests {
         list.add("常鑫");
         list.add("张纪龙");
         list.add("胡玉仙");
+        list.add("金宇婷");//commit test 10/11
         list.add("李嘉成");
 
         for (String item : list) {
