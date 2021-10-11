@@ -6,7 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class UserMapperTests {
@@ -35,7 +37,7 @@ class UserMapperTests {
         Map<String, String> map = new HashMap<>();
         map.put("常鑫", "1936240066");
         map.put("张纪龙", "1936240048");
-        map.put("金宇婷", "1936240048");
+        map.put("金宇婷", "1936240064");
         map.put("李嘉成", "1936240017");
 
         for (String name : map.keySet()) {
