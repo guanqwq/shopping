@@ -29,4 +29,17 @@ class UserMapperTests {
             System.out.println(mapper.getUser(item, null));
         }
     }
+
+    @Test
+    void getUserTest() {
+        Map<String, String> map = new HashMap<>();
+        map.put("常鑫", "1936240066");
+        map.put("张纪龙", "1936240048");
+        map.put("金宇婷", "1936240048");
+        map.put("李嘉成", "1936240017");
+
+        for (String name : map.keySet()) {
+            System.out.println(mapper.getUser(name, map.get(name)));
+        }
+    }
 }
