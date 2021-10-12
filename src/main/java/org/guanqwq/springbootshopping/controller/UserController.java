@@ -4,6 +4,7 @@ import org.guanqwq.springbootshopping.entity.User;
 import org.guanqwq.springbootshopping.service.IUserService;
 import org.guanqwq.springbootshopping.service.impl.UserServiceImpl;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ public class UserController {
     private IUserService service;
 
     private String getIPAddress(HttpServletRequest request) {
-        String ip = request.getRemoteAddr();
+        String ip = null;
 
         String[] headers = {
                 "x-forwarded-for",
@@ -37,6 +38,10 @@ public class UserController {
             }
         }
 
+        if (ip==null || ip.length()==0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+
         return ip;
     }
 
@@ -47,7 +52,7 @@ public class UserController {
     }
 
     @PostMapping("users")
-    public Map<String, Object> getUsers(HttpServletRequest request, User user, String password) {
+    public Map<String, Object> getUsers(HttpServletRequest request, @RequestBody User user, String password) {
 
         Map<String, Object> result = service.getUserList(user, password);
         if (result.get("message") == UserServiceImpl.EXCEPTION) {

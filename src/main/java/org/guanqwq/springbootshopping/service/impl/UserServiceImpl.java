@@ -100,6 +100,8 @@ public class UserServiceImpl implements IUserService {
                 result.put(MESSAGE, SUCCESS);
                 result.put("list", users);
             }
+        } else {
+            result.put(MESSAGE, "您没有权限.");
         }
 
         return result;
