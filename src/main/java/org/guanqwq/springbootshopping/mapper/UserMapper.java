@@ -3,10 +3,12 @@ package org.guanqwq.springbootshopping.mapper;
 import org.apache.ibatis.annotations.*;
 import org.guanqwq.springbootshopping.entity.User;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
-    @Results(id = "user",
+    @Results(id = "user_field_mapper",
             value = {
                 @Result(column = "id", property = "userID", id = true),
                 @Result(column = "name", property = "userName"),
@@ -21,5 +23,7 @@ public interface UserMapper {
             "</script>")
     User getUser(@Param("name") String username, @Param("pwd") String password);
 
-    // 查找所有用户
+    @ResultMap("user_field_mapper")
+    @Select("SELECT * FROM user")
+    List<User> getAllUsers();
 }
