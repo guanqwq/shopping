@@ -16,12 +16,15 @@ public interface UserMapper {
                 @Result(column = "password", property = "userPassword"),
                 @Result(column = "balance", property = "userBalance")
     })
-    // @Select("Select * FROM user WHERE name=#{name} and password=#{pwd}")
     @Select("<script>" +
             "Select * FROM user WHERE name=#{name}" +
             "<if test=\"pwd!=null\"> AND password=#{pwd} </if>" +
             "</script>")
     User getUser(@Param("name") String username, @Param("pwd") String password);
+
+    @ResultMap("user_field_mapper")
+    @Select("SELECT * FROM user WHERE id=#{id}")
+    User getUserByID(Integer id);
 
     @ResultMap("user_field_mapper")
     @Select("SELECT * FROM user")
