@@ -22,4 +22,9 @@ public class ProductMapperTests {
             System.out.println(product);
         }
     }
+
+    @Test
+    void getProductNumberTest() {
+        System.out.println(mapper.getProductNumber("京东京造"));
+    }
 }

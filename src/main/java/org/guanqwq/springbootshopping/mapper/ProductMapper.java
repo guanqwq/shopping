@@ -29,4 +29,10 @@ public interface ProductMapper {
             @Param("index") Integer index,
             @Param("num") Integer num
     );
+
+    @Select("<script>" +
+            "SELECT COUNT(*) FROM product" +
+            "<if test=\"keyword!=null and keyword!=''\"> WHERE name like '%${keyword}%' </if>" +
+            "</script>")
+    Integer getProductNumber(@Param("keyword") String keyword);
 }
