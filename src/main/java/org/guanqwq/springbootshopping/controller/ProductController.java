@@ -19,4 +19,10 @@ public class ProductController {
 
         return service.getProducts(keyword, index, num);
     }
+
+    @RequestMapping("product")
+    public Map<String, Object> getProduct(Integer id) {
+
+        return service.getProduct(id);
+    }
 }

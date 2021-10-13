@@ -32,4 +32,20 @@ public class ProductServiceImpl implements IProductService {
 
         return result;
     }
+
+    @Override
+    public Map<String, Object> getProduct(Integer id) {
+        Map<String, Object> result = new HashMap<>();
+
+        Product product = mapper.getProductByID(id);
+
+        if (product == null) {
+            result.put(MESSAGE, "不存在此商品.");
+        } else {
+            result.put(MESSAGE, SUCCESS);
+            result.put("product", product);
+        }
+
+        return result;
+    }
 }
