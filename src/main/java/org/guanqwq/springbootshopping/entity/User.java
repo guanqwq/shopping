@@ -1,8 +1,6 @@
 package org.guanqwq.springbootshopping.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -11,6 +9,8 @@ public class User {
     private Integer userID;
     private String userName;
     private Role userRole;
+    @Getter(AccessLevel.NONE)
+    @ToString.Exclude
     private String userPassword;
     private Double userBalance;
 }

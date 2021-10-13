@@ -1,6 +1,8 @@
 package org.guanqwq.springbootshopping;
 
+import org.guanqwq.springbootshopping.entity.User;
 import org.guanqwq.springbootshopping.mapper.UserMapper;
+import org.guanqwq.springbootshopping.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -24,8 +26,6 @@ class UserMapperTests {
         list.add("胡玉仙");
         list.add("金宇婷");//commit test 10/11
         list.add("李嘉成");
-        // test
-        list.add("金宇婷");
 
         for (String item : list) {
             System.out.println(mapper.getUser(item, null));
@@ -42,6 +42,15 @@ class UserMapperTests {
 
         for (String name : map.keySet()) {
             System.out.println(mapper.getUser(name, map.get(name)));
+        }
+    }
+
+    @Test
+    void getAllUsersTest() {
+        List<User> users = mapper.getAllUsers();
+
+        for (User user : users) {
+            System.out.println(user);
         }
     }
 }
