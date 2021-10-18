@@ -2,6 +2,7 @@ package org.guanqwq.springbootshopping.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.guanqwq.springbootshopping.entity.Product;
+import org.guanqwq.springbootshopping.entity.ShrineProduct;
 
 import java.util.List;
 
@@ -39,4 +40,7 @@ public interface ProductMapper {
     @ResultMap("product_field_mapper")
     @Select("SELECT * FROM product WHERE pid=#{id}")
     Product getProductByID(Integer id);
+
+    @Select("SELECT name AS title, pic_url AS url, price FROM product")
+    List<ShrineProduct> getProductsJson();
 }
