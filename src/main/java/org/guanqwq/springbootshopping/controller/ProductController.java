@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +23,9 @@ public class ProductController {
     private ProductMapper mapper;
 
     @RequestMapping("products")
-    public Map<String, Object> getProducts(String keyword, Integer index, Integer num) {
+    public Map<String, Object> getProducts(HttpServletResponse response, String keyword, Integer index, Integer num) {
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         return service.getProducts(keyword, index, num);
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -46,7 +47,9 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public Map<String, Object> login(String username, String password) {
+    public Map<String, Object> login(HttpServletResponse response, String username, String password) {
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         return service.login(username, password);
     }
